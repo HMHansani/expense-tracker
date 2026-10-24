@@ -6,9 +6,12 @@ const totalEl = document.getElementById("total");
 const errorEl = document.getElementById("error");
 const form = document.getElementById("expense-form");
 
-export function renderExpenses(expenses) {
+export function renderExpenses(expenses, emptyText = "No expenses yet.") {
   list.innerHTML = "";
+  emptyMessage.textContent = emptyText;
   emptyMessage.style.display = expenses.length ? "none" : "block";
+
+  // ...the rest of the function stays exactly the same
 
   expenses.forEach((expense) => {
     const li = document.createElement("li");

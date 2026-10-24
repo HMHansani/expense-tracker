@@ -1,15 +1,28 @@
 import { getExpenses, saveExpenses } from "./storage.js";
-import { generateId, validateExpense } from "./utils.js";
+import { generateId, validateExpense, getFilteredExpenses } from "./utils.js";
 import { renderExpenses, renderTotal, showError, clearForm } from "./ui.js";
 
 let expenses = getExpenses();
 
 const form = document.getElementById("expense-form");
 const list = document.getElementById("expense-list");
+const categoryFilter = document.getElementById("filter-category");
+const monthFilter = document.getElementById("filter-month");
+const clearFiltersBtn = document.getElementById("clear-filters");
 
 function render() {
-  renderExpenses(expenses);
-  renderTotal(expenses);
+  const filtered = getFilteredExpenses(expenses, {
+    category: categoryFilter.value,
+    month: monthFilter.value,
+  });
+
+  const emptyText =
+    expenses.length && !filtered.length
+      ? "No expenses match your filters."
+      : "No expenses yet.";
+
+  renderExpenses(filtered, emptyText);
+  renderTotal(filtered);
 }
 
 form.addEventListener("submit", (event) => {
@@ -46,6 +59,15 @@ list.addEventListener("click", (event) => {
   expenses = expenses.filter((expense) => expense.id !== id);
 
   saveExpenses(expenses);
+  render();
+});
+
+categoryFilter.addEventListener("change", render);
+monthFilter.addEventListener("change", render);
+
+clearFiltersBtn.addEventListener("click", () => {
+  categoryFilter.value = "all";
+  monthFilter.value = "";
   render();
 });
 

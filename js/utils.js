@@ -37,3 +37,11 @@ export function groupByCategory(expenses) {
 export function getTotal(expenses) {
   return expenses.reduce((sum, expense) => sum + expense.amount, 0);
 }
+
+export function getFilteredExpenses(expenses, { category, month }) {
+  return expenses.filter((expense) => {
+    const matchesCategory = category === "all" || expense.category === category;
+    const matchesMonth = !month || expense.date.slice(0, 7) === month;
+    return matchesCategory && matchesMonth;
+  });
+}
