@@ -4,7 +4,12 @@ A simple, responsive expense tracker built with vanilla JavaScript, Chart.js, an
 
 **[Live demo](https://HMHansani.github.io/expense-tracker/)**
 
-![Screenshot](assets/screenshot.png)
+## Screenshots
+
+![Expense list and form](assets/Screenshot1.png)
+![Chart view](assets/Screenshot2.png)
+![Filters and dark mode](assets/Screenshot3.png)
+
 
 ## Features
 - Add and delete expenses
@@ -13,6 +18,9 @@ A simple, responsive expense tracker built with vanilla JavaScript, Chart.js, an
 - Doughnut chart of spending by category
 - Data saved in the browser (localStorage)
 - Responsive layout for phones and desktops
+- Edit and delete expenses
+- Dark mode
+- Export to CSV
 
 ## Tech
 HTML5, CSS3, JavaScript (ES6 modules), Chart.js
