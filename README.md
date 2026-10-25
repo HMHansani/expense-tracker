@@ -13,6 +13,17 @@ A simple, responsive expense tracker built with vanilla JavaScript, Chart.js, an
 - Doughnut chart of spending by category
 - Data saved in the browser (localStorage)
 - Responsive layout for phones and desktops
+- Export to CSV
+- Dark mode
+
+## Ideas for later
+- Edit existing expenses
+- Monthly budget warning
+
+
+## License
+MIT
+
 
 ## Tech
 HTML5, CSS3, JavaScript (ES6 modules), Chart.js
