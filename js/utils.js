@@ -45,3 +45,12 @@ export function getFilteredExpenses(expenses, { category, month }) {
     return matchesCategory && matchesMonth;
   });
 }
+
+export function toCSV(expenses) {
+  const escape = (value) => `"${String(value).replace(/"/g, '""')}"`;
+  const header = ["Title", "Amount", "Category", "Date"].join(",");
+  const rows = expenses.map((e) =>
+    [e.title, e.amount, e.category, e.date].map(escape).join(",")
+  );
+  return [header, ...rows].join("\n");
+}

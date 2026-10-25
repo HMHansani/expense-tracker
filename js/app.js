@@ -1,8 +1,8 @@
+import "./theme.js";
 import { getExpenses, saveExpenses } from "./storage.js";
-import { generateId, validateExpense, getFilteredExpenses } from "./utils.js";
-import { renderExpenses, renderTotal, showError, clearForm } from "./ui.js";
+import { generateId, validateExpense, getFilteredExpenses, toCSV } from "./utils.js";
+import { renderExpenses, renderTotal, showError, clearForm, downloadFile } from "./ui.js";
 import { renderChart } from "./chart.js";
-
 let expenses = getExpenses();
 
 const form = document.getElementById("expense-form");
@@ -74,3 +74,16 @@ clearFiltersBtn.addEventListener("click", () => {
 });
 
 render();
+const exportBtn = document.getElementById("export-csv");
+
+exportBtn.addEventListener("click", () => {
+  const filtered = getFilteredExpenses(expenses, {
+    category: categoryFilter.value,
+    month: monthFilter.value,
+  });
+  if (!filtered.length) return;
+  downloadFile("expenses.csv", toCSV(filtered));
+});
+
+// Redraw the chart so its text color matches the theme
+document.addEventListener("themechange", render);

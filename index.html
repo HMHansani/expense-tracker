@@ -9,8 +9,10 @@
 </head>
 <body>
   <main class="container">
-    <h1>Expense Tracker</h1>
-
+    <header class="top">
+  <h1>Expense Tracker</h1>
+  <button type="button" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+</header>
     <!-- Summary -->
     <section class="card summary">
       <p>Total spent</p>
@@ -57,6 +59,7 @@
       <h3>Expenses</h3>
       <ul id="expense-list"></ul>
       <p id="empty-message">No expenses yet.</p>
+      <button type="button" id="export-csv">Export CSV</button>
     </section>
 
     <!-- Chart (added in a later step) -->

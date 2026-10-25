@@ -136,3 +136,35 @@ select:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
+
+:root { --border: #d1d5db; }
+
+:root[data-theme="dark"] {
+  --bg: #111827;
+  --card: #1f2937;
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --border: #374151;
+}
+
+input, select {
+  background: var(--card);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.expense-item { border-bottom-color: var(--border); }
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top h1 { margin: 0.5rem 0; }
+
+#theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  font-size: 1.1rem;
+}

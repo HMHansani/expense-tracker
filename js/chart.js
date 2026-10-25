@@ -42,9 +42,16 @@ export function renderChart(expenses) {
         },
       ],
     },
-    options: {
+        options: {
       plugins: {
-        legend: { position: "bottom" },
+        legend: {
+          position: "bottom",
+          labels: {
+            color: getComputedStyle(document.documentElement)
+              .getPropertyValue("--text")
+              .trim(),
+          },
+        },
       },
     },
   });
