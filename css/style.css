@@ -103,3 +103,8 @@ ul { list-style: none; padding: 0; margin: 0; }
   padding: 0.25rem 0.55rem;
   font-size: 0.85rem;
 }
+
+#chart {
+  max-width: 320px;
+  margin: 0 auto;
+}

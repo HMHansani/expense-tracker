@@ -1,6 +1,7 @@
 import { getExpenses, saveExpenses } from "./storage.js";
 import { generateId, validateExpense, getFilteredExpenses } from "./utils.js";
 import { renderExpenses, renderTotal, showError, clearForm } from "./ui.js";
+import { renderChart } from "./chart.js";
 
 let expenses = getExpenses();
 
@@ -23,6 +24,7 @@ function render() {
 
   renderExpenses(filtered, emptyText);
   renderTotal(filtered);
+  renderChart(filtered);
 }
 
 form.addEventListener("submit", (event) => {
