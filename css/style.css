@@ -168,3 +168,17 @@ input, select {
   border: 1px solid var(--border);
   font-size: 1.1rem;
 }
+
+.edit-btn {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 0.25rem 0.7rem;
+  font-size: 0.85rem;
+}
+
+.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
